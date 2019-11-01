@@ -1,5 +1,9 @@
-const knex = require('knex');
+const knex = require("knex");
+const configOptions = require("../knexfile.js");
+const db = knex(configOptions.development);
 
-const configOptions = require('../knexfile').development;
+function find() {
+  return db("accounts");
+}
 
-module.exports = knex(configOptions);
+module.exports = { find };
